@@ -160,7 +160,14 @@ public class Game {
                 for (int j = 0; j <=rows; j++){
                     if (grid[0][j] == 'x' && grid[1][j] == 'x' && grid[2][j] == 'x'){
                         result = "!Player 1 Won!";
+                    }if (grid[0][j] == 'o' && grid[1][j] == 'o' && grid[2][j] == 'o') {
+                        result = "!Player 2 Won!";
+                    }if (grid[i][0] == 'x' && grid[i][1] == 'x' && grid[i][2] == 'x') {
+                        result = "!Player 1 Won!";
+                    }if (grid[i][0] == 'o' && grid[i][1] == 'o' && grid[i][2] == 'o') {
+                        result = "!Player 2 Won!";
                     }
+
                 }
 
             }
