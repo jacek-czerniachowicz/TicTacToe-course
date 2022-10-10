@@ -150,7 +150,20 @@ public class Game {
      */
     public String checkGameWinner(char [][]grid){
         String result = "None";
+        int cols = 2;
+        int rows = 2;
+
+        boolean gameOn = true;
         //Student code goes here ...
+
+            for (int i = 0; i <= cols; i++){
+                for (int j = 0; j <=rows; j++){
+                    if (grid[0][j] == 'x' && grid[1][j] == 'x' && grid[2][j] == 'x'){
+                        result = "!Player 1 Won!";
+                    }
+                }
+
+            }
 
         return result;
     }
