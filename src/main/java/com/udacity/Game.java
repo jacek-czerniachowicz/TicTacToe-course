@@ -166,6 +166,17 @@ public class Game {
                         result = "!Player 1 Won!";
                     }if (grid[i][0] == 'o' && grid[i][1] == 'o' && grid[i][2] == 'o') {
                         result = "!Player 2 Won!";
+                    }if (grid[0][0] == 'x' && grid[1][1] == 'x' && grid[2][2] == 'x') {
+                        result = "!Player 1 Won!";
+                    }if (grid[0][0] == 'o' && grid[1][1] == 'o' && grid[2][2] == 'o') {
+                        result = "!Player 2 Won!";
+                    }if (grid[0][2] == 'x' && grid[1][1] == 'x' && grid[2][0] == 'x') {
+                        result = "!Player 1 Won!";
+                    }if (grid[0][2] == 'o' && grid[1][1] == 'o' && grid[2][0] == 'o') {
+                        result = "!Player 2 Won!";
+                    }else if (freeSpots == 0) {
+                        result = "It's Tie!";
+
                     }
 
                 }
