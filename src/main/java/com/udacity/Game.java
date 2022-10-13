@@ -136,6 +136,7 @@ public class Game {
                 turn = 'x';
             }
         }
+
         return;
     }
 
@@ -150,38 +151,36 @@ public class Game {
      */
     public String checkGameWinner(char [][]grid){
         String result = "None";
+
+        //Student code goes here ...
         int cols = 2;
         int rows = 2;
-
-        boolean gameOn = true;
-        //Student code goes here ...
+        int freeSpace = 9;
 
             for (int i = 0; i <= cols; i++){
                 for (int j = 0; j <=rows; j++){
-                    if (grid[0][j] == 'x' && grid[1][j] == 'x' && grid[2][j] == 'x'){
-                        result = "!Player 1 Won!";
-                    }if (grid[0][j] == 'o' && grid[1][j] == 'o' && grid[2][j] == 'o') {
-                        result = "!Player 2 Won!";
-                    }if (grid[i][0] == 'x' && grid[i][1] == 'x' && grid[i][2] == 'x') {
-                        result = "!Player 1 Won!";
-                    }if (grid[i][0] == 'o' && grid[i][1] == 'o' && grid[i][2] == 'o') {
-                        result = "!Player 2 Won!";
-                    }if (grid[0][0] == 'x' && grid[1][1] == 'x' && grid[2][2] == 'x') {
-                        result = "!Player 1 Won!";
-                    }if (grid[0][0] == 'o' && grid[1][1] == 'o' && grid[2][2] == 'o') {
-                        result = "!Player 2 Won!";
-                    }if (grid[0][2] == 'x' && grid[1][1] == 'x' && grid[2][0] == 'x') {
-                        result = "!Player 1 Won!";
-                    }if (grid[0][2] == 'o' && grid[1][1] == 'o' && grid[2][0] == 'o') {
-                        result = "!Player 2 Won!";
-                    }else if (freeSpots == 0) {
-                        result = "It's Tie!";
+                    boolean player1winCond = ((grid[0][j] == 'x' && grid[1][j] == 'x' && grid[2][j] == 'x') ||
+                            (grid[i][0] == 'x' && grid[i][1] == 'x' && grid[i][2] == 'x') ||
+                            (grid[0][0] == 'x' && grid[1][1] == 'x' && grid[2][2] == 'x') ||
+                            (grid[0][2] == 'x' && grid[1][1] == 'x' && grid[2][0] == 'x'));
+                    boolean player2winCond = ((grid[0][j] == 'o' && grid[1][j] == 'o' && grid[2][j] == 'o') ||
+                            (grid[i][0] == 'o' && grid[i][1] == 'o' && grid[i][2] == 'o') ||
+                            (grid[0][0] == 'o' && grid[1][1] == 'o' && grid[2][2] == 'o') ||
+                            (grid[0][2] == 'o' && grid[1][1] == 'o' && grid[2][0] == 'o'));
 
+                    if (player1winCond){
+                        result = "x wins";
+                    }if (player2winCond) {
+                        result = "o wins";
+                    }if (grid[i][j] != '-') {
+                        freeSpace -= 1;
+                    }if (freeSpace == 0 && result.equals("None")){
+                            result = "tie";
                     }
 
                 }
-
             }
+
 
         return result;
     }
